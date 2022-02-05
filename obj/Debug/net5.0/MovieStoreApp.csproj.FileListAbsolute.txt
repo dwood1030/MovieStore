@@ -1,0 +1,16 @@
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.exe
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.deps.json
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.runtimeconfig.json
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.runtimeconfig.dev.json
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.dll
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\ref\MovieStoreApp.dll
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\bin\Debug\net5.0\MovieStoreApp.pdb
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.csproj.AssemblyReference.cache
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.AssemblyInfoInputs.cache
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.AssemblyInfo.cs
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.csproj.CoreCompileInputs.cache
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.dll
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\ref\MovieStoreApp.dll
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.pdb
+C:\Users\dalto\Documents\development\codelouisville-projects\personal-projects\movie-store\MovieStoreApp\obj\Debug\net5.0\MovieStoreApp.genruntimeconfig.cache
