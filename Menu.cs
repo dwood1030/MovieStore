@@ -28,37 +28,54 @@ namespace MovieStoreApp
 
             switch(userInput)
             {
-                case "1":
+                case "1": // CREATE NEW CUSTOMER
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
-                    Customers.NewCustomer();
-                    break;
 
-                case "2":
-                    Console.WriteLine();
-                    Console.WriteLine("============================================================");
-                    Console.WriteLine();
-                    break;
+                    Customer.NewCustomer();
 
-                case "3":
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
                     break;
 
-                case "4":
+                case "2": // CUSTOMER SEARCH
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+
+                    Customer.CustomerSearch();
+
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
                     break;
 
-                case "5":
+                case "3": // CHECK OUT/RETURN
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+                    break;
+
+                case "4": // EDIT INVENTORY
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+                    break;
+
+                case "5": // EXIT APPLICATION
                     return false;
 
                 default:
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
                     Console.WriteLine($"{userInput} IS INVALID");
                     Console.WriteLine("TRY AGAIN");
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
                     break;
             }
 
