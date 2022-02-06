@@ -22,7 +22,7 @@ namespace MovieStoreApp
 
         public string Address { get; set; }
 
-        public double CustomerID { get; set; }
+        public double CustomerID { get; private set; }
 
         public string Status { get; set; }
 
@@ -37,7 +37,6 @@ namespace MovieStoreApp
             Address = address;
             Status = status;
         }
-
         
         public static void NewCustomer()
         {
@@ -54,20 +53,45 @@ namespace MovieStoreApp
             string email = Console.ReadLine();
             Console.Write("ADDRESS: ");
             string address = Console.ReadLine();
-            // need create a customer ID using GUID
+
+            // NEED TO GENERATE CUSTOMER ID USING GUID
+
             string status = "ACTIVE";
             Console.WriteLine($"STATUS: {status}");
 
-            Customer customer1 = new Customer(firstName, lastName, birthday, email, phoneNumber, address, status);
+            Customer newCustomer = new Customer(firstName, lastName, birthday, email, phoneNumber, address, status);
 
-            Console.WriteLine($"NEW CUSTOMER {firstName} {lastName} HAS BEEN CREATED");
+            Console.WriteLine($"NEW CUSTOMER {newCustomer.Name} HAS BEEN CREATED");
 
-            Console.WriteLine("Name = {0}", customer1.Name);
+            // HOW TO ADD newCustomer TO A LIST AND HAVE SUBSEQUENT CUSTOMERS NOT OVERRIDE PREVIOUS CUSTOMERS
         }
 
         public static void CustomerSearch()
         {
-            
+            Console.Write("ENTER CUSTOMER NAME: ");
+            Console.ReadLine();
+
+            // HOW TO SEARCH ITEMS ON A LIST
+
+            // DISPLAY ITEMS CURRENTLY CHECKED OUT TO THIS CUSTOMER
+
+            // HOW TO EDIT THE PROPERTIES OF OBJECTS THAT ARE ON THAT LIST
+            Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
+            string editCustomer = Console.ReadLine();
+            if (editCustomer == "Y")
+            {
+                Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
+                string input = Console.ReadLine();
+
+                switch(input)
+                {
+                    case "FIRST NAME":
+                        Console.WriteLine("PLEASE ENTER NEW FIRST NAME");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+
         }
     }
 }
