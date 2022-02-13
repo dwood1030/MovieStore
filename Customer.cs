@@ -37,6 +37,8 @@ namespace MovieStoreApp
             Address = address;
             Status = status;
         }
+
+        static List<Customer> customerList = new List<Customer>();
         
         public static void NewCustomer()
         {
@@ -63,7 +65,9 @@ namespace MovieStoreApp
 
             Console.WriteLine($"NEW CUSTOMER {newCustomer.Name} HAS BEEN CREATED");
 
-            // HOW TO ADD newCustomer TO A LIST AND HAVE SUBSEQUENT CUSTOMERS NOT OVERRIDE PREVIOUS CUSTOMERS
+            customerList.Add(newCustomer);
+
+            // HOW TO ADD newCustomer TO A LIST AND HAVE SUBSEQUENT CUSTOMERS NOT OVERRIDE PREVIOUS CUSTOMERS?
         }
 
         public static void CustomerSearch()
@@ -71,25 +75,63 @@ namespace MovieStoreApp
             Console.Write("ENTER CUSTOMER NAME: ");
             Console.ReadLine();
 
-            // HOW TO SEARCH ITEMS ON A LIST
+            // HOW TO SEARCH ITEMS ON A LIST?
 
             // DISPLAY ITEMS CURRENTLY CHECKED OUT TO THIS CUSTOMER
 
-            // HOW TO EDIT THE PROPERTIES OF OBJECTS THAT ARE ON THAT LIST
+            // HOW TO EDIT THE PROPERTIES OF OBJECTS THAT ARE ON THAT LIST?
             Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
             string editCustomer = Console.ReadLine();
-            if (editCustomer == "Y")
+            if (editCustomer == "Y" | editCustomer == "y")
             {
                 Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
                 string input = Console.ReadLine();
 
-                switch(input)
+                switch(input) // NEED TO ADD LOOP SO SWITCH KEEPS GOING UNTIL A VALID INPUT IS ENTERED
                 {
                     case "FIRST NAME":
                         Console.WriteLine("PLEASE ENTER NEW FIRST NAME");
                         Console.ReadLine();
                         break;
+
+                    case "LAST NAME":
+                        Console.WriteLine("PLEASE ENTER NEW LAST NAME");
+                        Console.ReadLine();
+                        break;
+
+                    case "PHONE NUMBER":
+                        Console.WriteLine("PLEASE ENTER NEW PHONE NUMBER");
+                        Console.ReadLine();
+                        break;
+
+                    case "EMAIL":
+                        Console.WriteLine("PLEASE ENTER NEW EMAIL");
+                        Console.ReadLine();
+                        break;
+
+                    case "ADDRESS":
+                        Console.WriteLine("PLEASE ENTER NEW ADDRESS");
+                        Console.ReadLine();
+                        break;
+
+                    case "STATUS":
+                        Console.WriteLine("PLEASE ENTER NEW CUSTOMER STATUS");
+                        Console.WriteLine("CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
+                        string customerStatus = Console.ReadLine();
+                        // ERROR HANDLING NEEDS TO BE ADDED HERE
+                        break;
+
+                    default:
+                        Console.WriteLine("INPUT INVALID. ENTER ONE OF THE FOLLOWING:");
+                        Console.WriteLine("FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, STATUS");
+                        break;
                 }
+            }
+            else
+            {
+                Console.WriteLine("WOULD YOU LIKE TO SEARCH ANOTHER CUSTOMER?");
+
+                // NEED TO ADD LOOP TO ALLOW USER TO SEARCH ANOTHER CUSTOMER
             }
 
         }
