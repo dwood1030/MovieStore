@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MovieStoreApp
-{
+{ // EDIT TO ENSURE GIT IS SET UP PROPERLY
     internal class Customer
     {
         public string Name { get; set; }

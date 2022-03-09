@@ -8,19 +8,24 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dalto\\.nuget\\packages\\": {}
+    "C:\\Users\\dalto\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dalto\\Documents\\development\\codelouisville-projects\\personal-projects\\movie-store\\MovieStoreApp\\MovieStoreApp.csproj",
+      "projectUniqueName": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\MovieStoreApp.csproj",
       "projectName": "MovieStoreApp",
-      "projectPath": "C:\\Users\\dalto\\Documents\\development\\codelouisville-projects\\personal-projects\\movie-store\\MovieStoreApp\\MovieStoreApp.csproj",
+      "projectPath": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\MovieStoreApp.csproj",
       "packagesPath": "C:\\Users\\dalto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dalto\\Documents\\development\\codelouisville-projects\\personal-projects\\movie-store\\MovieStoreApp\\obj\\",
+      "outputPath": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\dalto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
