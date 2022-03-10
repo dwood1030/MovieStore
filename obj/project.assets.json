@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\MovieStoreApp.csproj",
+      "projectUniqueName": "C:\\Users\\dalto\\Documents\\projects\\MovieStore\\MovieStoreApp.csproj",
       "projectName": "MovieStoreApp",
-      "projectPath": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\MovieStoreApp.csproj",
+      "projectPath": "C:\\Users\\dalto\\Documents\\projects\\MovieStore\\MovieStoreApp.csproj",
       "packagesPath": "C:\\Users\\dalto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dalto\\Documents\\projects\\movie-store\\MovieStore\\obj\\",
+      "outputPath": "C:\\Users\\dalto\\Documents\\projects\\MovieStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
 
 namespace MovieStoreApp
-{ // EDIT TO ENSURE GIT IS SET UP PROPERLY
+{ 
     internal class Customer
     {
         public string Name { get; set; }
@@ -66,6 +69,9 @@ namespace MovieStoreApp
             Console.WriteLine($"NEW CUSTOMER {newCustomer.Name} HAS BEEN CREATED");
 
             customerList.Add(newCustomer);
+
+            string json = JsonSerializer.Serialize(customerList);
+            File.WriteAllText(@"C:\Users\dalto\Documents\projects\MovieStore\customerList.json", json);
 
             // HOW TO ADD newCustomer TO A LIST AND HAVE SUBSEQUENT CUSTOMERS NOT OVERRIDE PREVIOUS CUSTOMERS?
         }
