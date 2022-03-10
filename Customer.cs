@@ -25,11 +25,11 @@ namespace MovieStoreApp
 
         public string Address { get; set; }
 
-        public double CustomerID { get; private set; }
+        public Guid CustomerID { get; private set; }
 
         public string Status { get; set; }
 
-        public Customer(string firstName, string lastName, string birthday, string email, string phoneNumber, string address, string status)
+        public Customer(string firstName, string lastName, string birthday, string email, string phoneNumber, string address, Guid customerID, string status)
         {
             Name = firstName + " " + lastName;
             FirstName = firstName;
@@ -38,6 +38,7 @@ namespace MovieStoreApp
             Email = email;
             PhoneNumber = phoneNumber;
             Address = address;
+            CustomerID = customerID;
             Status = status;
         }
 
@@ -59,12 +60,13 @@ namespace MovieStoreApp
             Console.Write("ADDRESS: ");
             string address = Console.ReadLine();
 
+            Guid customerID = Guid.NewGuid();
             // NEED TO GENERATE CUSTOMER ID USING GUID
 
             string status = "ACTIVE";
             Console.WriteLine($"STATUS: {status}");
 
-            Customer newCustomer = new Customer(firstName, lastName, birthday, email, phoneNumber, address, status);
+            Customer newCustomer = new Customer(firstName, lastName, birthday, email, phoneNumber, address, customerID, status);
 
             Console.WriteLine($"NEW CUSTOMER {newCustomer.Name} HAS BEEN CREATED");
 
@@ -72,8 +74,6 @@ namespace MovieStoreApp
 
             string json = JsonSerializer.Serialize(customerList);
             File.WriteAllText(@"C:\Users\dalto\Documents\projects\MovieStore\customerList.json", json);
-
-            // HOW TO ADD newCustomer TO A LIST AND HAVE SUBSEQUENT CUSTOMERS NOT OVERRIDE PREVIOUS CUSTOMERS?
         }
 
         public static void CustomerSearch()
@@ -81,7 +81,7 @@ namespace MovieStoreApp
             Console.Write("ENTER CUSTOMER NAME: ");
             Console.ReadLine();
 
-            // HOW TO SEARCH ITEMS ON A LIST?
+            // HOW TO SEARCH JSON FILe?
 
             // DISPLAY ITEMS CURRENTLY CHECKED OUT TO THIS CUSTOMER
 
