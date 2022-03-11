@@ -10,20 +10,22 @@ namespace MovieStoreApp
     {
         public static bool MainMenu()
         {
-            //  offer options to user
-            //   - CREATE NEW CUSTOMER
+            Console.WriteLine("============================================================");
+            Console.WriteLine("MOVIES-R-US -- MAIN MENU");
+            Console.WriteLine("============================================================");
+          
             Console.WriteLine("1. CREATE NEW CUSTOMER");
-            //   - CUSTOMER SEARCH
+         
             Console.WriteLine("2. CUSTOMER SEARCH");
-            //   - CHECK OUT/RETURN MOVIE
+        
             Console.WriteLine("3. CHECKOUT/RETURN");
-            //   - EDIT STOCK
+            
             Console.WriteLine("4. EDIT INVENTORY");
-            //  ATTEMPT ERROR HANDLING (user does something i am not expecting)
+            
             Console.WriteLine("5. EXIT");
 
             Console.Write("ENTER YOUR CHOICE: ");
-            // ask for their choice
+            
             string userInput = Console.ReadLine();
 
             switch(userInput)
@@ -44,9 +46,11 @@ namespace MovieStoreApp
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
-
-                    Customer.CustomerSearch();
-
+                    bool exitSearch = true;
+                    while (exitSearch)
+                    {
+                        exitSearch = Customer.CustomerSearch();
+                    }
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();

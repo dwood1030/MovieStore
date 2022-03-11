@@ -6,10 +6,6 @@ namespace MovieStoreApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("============================================================");
-            Console.WriteLine("MOVIES-R-US -- MAIN MENU");
-            Console.WriteLine("============================================================");
-
             bool exit = true;
             while (exit)
             {

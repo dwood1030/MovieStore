@@ -61,7 +61,6 @@ namespace MovieStoreApp
             string address = Console.ReadLine();
 
             Guid customerID = Guid.NewGuid();
-            // NEED TO GENERATE CUSTOMER ID USING GUID
 
             string status = "ACTIVE";
             Console.WriteLine($"STATUS: {status}");
@@ -76,70 +75,114 @@ namespace MovieStoreApp
             File.WriteAllText(@"C:\Users\dalto\Documents\projects\MovieStore\customerList.json", json);
         }
 
-        public static void CustomerSearch()
+        public static bool CustomerSearch()
         {
             Console.Write("ENTER CUSTOMER NAME: ");
             Console.ReadLine();
 
-            // HOW TO SEARCH JSON FILe?
+            // HOW TO SEARCH JSON FILE
+            // then display properties of object
 
-            // DISPLAY ITEMS CURRENTLY CHECKED OUT TO THIS CUSTOMER
-
-            // HOW TO EDIT THE PROPERTIES OF OBJECTS THAT ARE ON THAT LIST?
+            // HOW TO EDIT THE PROPERTIES OF OBJECTS IN JSON FILE?
             Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
             string editCustomer = Console.ReadLine();
-            if (editCustomer == "Y" | editCustomer == "y")
+            Console.WriteLine();
+
+            switch(editCustomer)
             {
-                Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
-                string input = Console.ReadLine();
+                case "Y":
+                    EditCustomer();
+                    break;
 
-                switch(input) // NEED TO ADD LOOP SO SWITCH KEEPS GOING UNTIL A VALID INPUT IS ENTERED
-                {
-                    case "FIRST NAME":
-                        Console.WriteLine("PLEASE ENTER NEW FIRST NAME");
-                        Console.ReadLine();
-                        break;
+                case "N":
+                    Console.WriteLine("RETURNING TO MAIN MENU");
+                    return false;
 
-                    case "LAST NAME":
-                        Console.WriteLine("PLEASE ENTER NEW LAST NAME");
-                        Console.ReadLine();
-                        break;
-
-                    case "PHONE NUMBER":
-                        Console.WriteLine("PLEASE ENTER NEW PHONE NUMBER");
-                        Console.ReadLine();
-                        break;
-
-                    case "EMAIL":
-                        Console.WriteLine("PLEASE ENTER NEW EMAIL");
-                        Console.ReadLine();
-                        break;
-
-                    case "ADDRESS":
-                        Console.WriteLine("PLEASE ENTER NEW ADDRESS");
-                        Console.ReadLine();
-                        break;
-
-                    case "STATUS":
-                        Console.WriteLine("PLEASE ENTER NEW CUSTOMER STATUS");
-                        Console.WriteLine("CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
-                        string customerStatus = Console.ReadLine();
-                        // ERROR HANDLING NEEDS TO BE ADDED HERE
-                        break;
-
-                    default:
-                        Console.WriteLine("INPUT INVALID. ENTER ONE OF THE FOLLOWING:");
-                        Console.WriteLine("FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, STATUS");
-                        break;
-                }
+                default:
+                    Console.WriteLine("INPUT INVALID.");
+                    break;
             }
-            else
+            //if (editCustomer == "Y" | editCustomer == "y")
+            //{ 
+            //    EditCustomer(); 
+            //}
+            //else if (editCustomer == "N" | editCustomer == "n")
+            //{
+            //    Console.WriteLine("RETURNING TO MAIN MENU");
+            //    return false;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("WOULD YOU LIKE TO SEARCH ANOTHER CUSTOMER? INPUT 'Y' OR 'N'");
+            //    string searchAgain = Console.ReadLine();
+                
+            //    if (searchAgain == "Y" | searchAgain == "y")
+            //    {
+
+            //    }
+
+            //    // NEED TO ADD LOOP TO ALLOW USER TO SEARCH ANOTHER CUSTOMER or return to main menu
+            //}
+
+            return true;
+        }
+
+        public static bool EditCustomer()
+        {
+            Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
+            string input = Console.ReadLine();
+
+            switch (input) // NEED TO ADD LOOP SO SWITCH KEEPS GOING UNTIL A VALID INPUT IS ENTERED
             {
-                Console.WriteLine("WOULD YOU LIKE TO SEARCH ANOTHER CUSTOMER?");
+                case "FIRST NAME":
+                    Console.WriteLine("PLEASE ENTER NEW FIRST NAME");
+                    Console.ReadLine();
+                    break;
 
-                // NEED TO ADD LOOP TO ALLOW USER TO SEARCH ANOTHER CUSTOMER
+                case "LAST NAME":
+                    Console.WriteLine("PLEASE ENTER NEW LAST NAME");
+                    Console.ReadLine();
+                    break;
+
+                case "PHONE NUMBER":
+                    Console.WriteLine("PLEASE ENTER NEW PHONE NUMBER");
+                    Console.ReadLine();
+                    break;
+
+                case "EMAIL":
+                    Console.WriteLine("PLEASE ENTER NEW EMAIL");
+                    Console.ReadLine();
+                    break;
+
+                case "ADDRESS":
+                    Console.WriteLine("PLEASE ENTER NEW ADDRESS");
+                    Console.ReadLine();
+                    break;
+
+                case "STATUS":
+                    Console.WriteLine("PLEASE ENTER NEW CUSTOMER STATUS");
+                    Console.WriteLine("CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
+                    string customerStatus = Console.ReadLine();
+                    // ERROR HANDLING NEEDS TO BE ADDED HERE
+                    if (customerStatus == "ACTIVE" | customerStatus == "INACTIVE")
+                    {
+                        Console.WriteLine(""); //change object value and display success message
+                    }
+                    else
+                    {
+                        Console.WriteLine("INPUT INVALID. CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
+                        Console.ReadLine();
+                    }
+                    break;
+                case "CANCEL":
+                    Console.WriteLine("RETURNING TO SEARCH MENU");
+                    return false;
+                default:
+                    Console.WriteLine("INPUT INVALID. ENTER ONE OF THE FOLLOWING:");
+                    Console.WriteLine("FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, STATUS, CANCEL");
+                    break;
             }
-
+            return true;
         }
     }
 }
