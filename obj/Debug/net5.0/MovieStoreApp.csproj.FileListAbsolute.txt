@@ -30,3 +30,5 @@ C:\Users\dalto\Documents\projects\MovieStore\bin\Debug\net5.0\MovieStoreApp.pdb
 C:\Users\dalto\Documents\projects\MovieStore\obj\Debug\net5.0\refint\MovieStoreApp.dll
 C:\Users\dalto\Documents\projects\MovieStore\obj\Debug\net5.0\MovieStoreApp.genruntimeconfig.cache
 C:\Users\dalto\Documents\projects\MovieStore\obj\Debug\net5.0\ref\MovieStoreApp.dll
+C:\Users\dalto\Documents\projects\MovieStore\bin\Debug\net5.0\customerList.json
+C:\Users\dalto\Documents\projects\MovieStore\bin\Debug\net5.0\movieList.json

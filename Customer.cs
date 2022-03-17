@@ -42,10 +42,13 @@ namespace MovieStoreApp
             Status = status;
         }
 
-        static List<Customer> customerList = new List<Customer>();
+        static List<Customer> customerList = new List<Customer>(); // how to make list not overwrite what is already in the JSON file
         
         public static void NewCustomer()
         {
+
+            
+
             Console.WriteLine();
             Console.Write("FIRST NAME: ");
             string firstName = Console.ReadLine();
@@ -72,23 +75,42 @@ namespace MovieStoreApp
             customerList.Add(newCustomer);
 
             string json = JsonSerializer.Serialize(customerList);
-            File.WriteAllText(@"C:\Users\dalto\Documents\projects\MovieStore\customerList.json", json);
+            File.WriteAllText(@"customerList.json", json);
         }
 
         public static bool CustomerSearch()
         {
-            Console.Write("ENTER CUSTOMER NAME: ");
-            Console.ReadLine();
 
             // HOW TO SEARCH JSON FILE
+
+            // first deserialize JSON file
+
+            string jsonString = File.ReadAllText(@"customerList.json");
+            var customer = JsonSerializer.Deserialize<List<Customer>>(jsonString)!;
+            
+            // enter customer name and select it using a LINQ query
+
+            Console.Write("ENTER CUSTOMER NAME: ");
+            string search = Console.ReadLine();
+
+            //IEnumerable<Customer> can also be written in place of var queryAllCustomers
+            var queryAllCustomers = from cust in customerList
+                                    where cust.Name == search
+                                    select cust;
+
             // then display properties of object
 
+            foreach(Customer cust in queryAllCustomers) // WHY IS THIS NOT DISPLAYING INFO??
+            {
+                Console.WriteLine("{0}, {1} , {2}, {3}, {4}, {5}, {6}", cust.Name, cust.Birthday, cust.Email, cust.PhoneNumber, cust.Address, cust.CustomerID, cust.Status);
+            }
+                
             // HOW TO EDIT THE PROPERTIES OF OBJECTS IN JSON FILE?
             Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
-            string editCustomer = Console.ReadLine();
+            string edit = Console.ReadLine();
             Console.WriteLine();
 
-            switch(editCustomer)
+            switch(edit)
             {
                 case "Y":
                     EditCustomer();
@@ -166,12 +188,12 @@ namespace MovieStoreApp
                     // ERROR HANDLING NEEDS TO BE ADDED HERE
                     if (customerStatus == "ACTIVE" | customerStatus == "INACTIVE")
                     {
-                        Console.WriteLine(""); //change object value and display success message
+                        //change object value
+                        Console.WriteLine("CUSTOMER STATUS CHANGE SUCCESSFUL"); 
                     }
                     else
                     {
                         Console.WriteLine("INPUT INVALID. CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
-                        Console.ReadLine();
                     }
                     break;
                 case "CANCEL":
