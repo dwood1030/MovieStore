@@ -22,7 +22,7 @@ namespace MovieStoreApp
 
             //Console.WriteLine("4. RETURN");
             
-            //Console.WriteLine("5. VIEW INVENTORY");
+            Console.WriteLine("5. VIEW INVENTORY");
             
             Console.WriteLine("6. EXIT");
 
@@ -76,17 +76,17 @@ namespace MovieStoreApp
                 //    Console.WriteLine();
                 //    break;
 
-                //case "5": // VIEW INVENTORY
-                //    Console.WriteLine();
-                //    Console.WriteLine("============================================================");
-                //    Console.WriteLine();
+                case "5": // VIEW INVENTORY
+                      Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
 
-                //    Movies.ViewInventory();
+                    Movies.ViewInventory();
 
-                //    Console.WriteLine();
-                //    Console.WriteLine("============================================================");
-                //    Console.WriteLine();
-                //    break;
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+                    break;
 
                 case "6": // EXIT APPLICATION
                     return false;
