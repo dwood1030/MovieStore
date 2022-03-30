@@ -42,10 +42,14 @@ namespace MovieStoreApp
             Status = status;
         }
 
-        static List<Customer> customerList = new List<Customer>(); // how to make list not overwrite what is already in the JSON file
+        static List<Customer> customerList = new List<Customer>();
         
         public static void NewCustomer()
         {
+
+            string jsonString = File.ReadAllText(@"..\..\..\customerList.json");
+            var customer = JsonSerializer.Deserialize<List<Customer>>(jsonString)!;
+
             Console.WriteLine();
             Console.Write("FIRST NAME: ");
             string firstName = Console.ReadLine();
@@ -70,9 +74,9 @@ namespace MovieStoreApp
             Console.WriteLine($"NEW CUSTOMER {newCustomer.Name} HAS BEEN CREATED");
 
             customerList.Add(newCustomer);
+            customerList.AddRange(customer);
 
             string json = JsonSerializer.Serialize(customerList);
-            Console.WriteLine(json);
             File.WriteAllText(@"..\..\..\customerList.json", json);
         }
 
@@ -95,7 +99,7 @@ namespace MovieStoreApp
 
             foreach(Customer cust in queryAllCustomers)
             {
-                Console.WriteLine($"Index: {index} \nName: {cust.Name} \nBirthday: {cust.Birthday} \nEmail: {cust.Email} \nPhone Number: {cust.PhoneNumber} \nAddress: {cust.Address} \nStatus: {cust.Status}");
+                Console.WriteLine($"Index: {index} \nName: {cust.Name} \nBirthday: {cust.Birthday} \nEmail: {cust.Email} \nPhone Number: {cust.PhoneNumber} \nAddress: {cust.Address} \nStatus: {cust.Status}\n");
                 index++;
             }
             
