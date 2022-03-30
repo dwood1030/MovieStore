@@ -149,7 +149,7 @@ namespace MovieStoreApp
             return false;
         }
 
-        public static bool EditCustomer(Customer selectedCustomer) // what to pass in?
+        public static bool EditCustomer(Customer selectedCustomer)
         {
             Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
             Console.WriteLine("PLEASE SELECT FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, OR STATUS");
