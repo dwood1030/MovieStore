@@ -46,9 +46,6 @@ namespace MovieStoreApp
         
         public static void NewCustomer()
         {
-
-            
-
             Console.WriteLine();
             Console.Write("FIRST NAME: ");
             string firstName = Console.ReadLine();
@@ -75,120 +72,110 @@ namespace MovieStoreApp
             customerList.Add(newCustomer);
 
             string json = JsonSerializer.Serialize(customerList);
-            File.WriteAllText(@"customerList.json", json);
+            Console.WriteLine(json);
+            File.WriteAllText(@"..\..\..\customerList.json", json);
         }
 
         public static bool CustomerSearch()
         {
-
-            // HOW TO SEARCH JSON FILE
-
-            // first deserialize JSON file
-
-            string jsonString = File.ReadAllText(@"customerList.json");
+            string jsonString = File.ReadAllText(@"..\..\..\customerList.json");
             var customer = JsonSerializer.Deserialize<List<Customer>>(jsonString)!;
-            
-            // enter customer name and select it using a LINQ query
 
             Console.Write("ENTER CUSTOMER NAME: ");
             string search = Console.ReadLine();
 
             //IEnumerable<Customer> can also be written in place of var queryAllCustomers
-            var queryAllCustomers = from cust in customerList
+            var queryAllCustomers = from cust in customer
                                     where cust.Name == search
                                     select cust;
 
-            // then display properties of object
+            int index = 0;
 
-            foreach(Customer cust in queryAllCustomers) // WHY IS THIS NOT DISPLAYING INFO??
+            foreach(Customer cust in queryAllCustomers)
             {
-                Console.WriteLine("{0}, {1} , {2}, {3}, {4}, {5}, {6}", cust.Name, cust.Birthday, cust.Email, cust.PhoneNumber, cust.Address, cust.CustomerID, cust.Status);
+                Console.WriteLine($"Index: {index} \nName: {cust.Name} \nBirthday: {cust.Birthday} \nEmail: {cust.Email} \nPhone Number: {cust.PhoneNumber} \nAddress: {cust.Address} \nStatus: {cust.Status}");
+                index++;
             }
-                
-            // HOW TO EDIT THE PROPERTIES OF OBJECTS IN JSON FILE?
-            Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
-            string edit = Console.ReadLine();
-            Console.WriteLine();
+            
+            Console.WriteLine("PLEASE SELECT THE CUSTOMER INDEX USING '0', '1','2','3', ETC..");
+            var selectedIndex = Int32.Parse(Console.ReadLine());
 
-            switch(edit)
+            if (selectedIndex < index++)
             {
-                case "Y":
-                    EditCustomer();
-                    break;
+                var selectedCustomer = queryAllCustomers.ElementAt(selectedIndex);
+                Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
+                string edit = Console.ReadLine();
+                Console.WriteLine();
 
-                case "N":
-                    Console.WriteLine("RETURNING TO MAIN MENU");
-                    return false;
+                switch (edit)
+                {
+                    case "Y":
+                        EditCustomer(selectedCustomer);
+                        break;
 
-                default:
-                    Console.WriteLine("INPUT INVALID.");
-                    break;
+                    case "N":
+                        Console.WriteLine("RETURNING TO MAIN MENU");
+                        return false;
+
+                    default:
+                        Console.WriteLine("INPUT INVALID.");
+                        break;
+                }
             }
-            //if (editCustomer == "Y" | editCustomer == "y")
-            //{ 
-            //    EditCustomer(); 
-            //}
-            //else if (editCustomer == "N" | editCustomer == "n")
-            //{
-            //    Console.WriteLine("RETURNING TO MAIN MENU");
-            //    return false;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("WOULD YOU LIKE TO SEARCH ANOTHER CUSTOMER? INPUT 'Y' OR 'N'");
-            //    string searchAgain = Console.ReadLine();
-                
-            //    if (searchAgain == "Y" | searchAgain == "y")
-            //    {
+            else
+            {
+                Console.WriteLine("INPUT INVALID");
+            }
 
-            //    }
+            string json = JsonSerializer.Serialize(customer);
+            File.WriteAllText(@"..\..\..\customerList.json", json);
 
-            //    // NEED TO ADD LOOP TO ALLOW USER TO SEARCH ANOTHER CUSTOMER or return to main menu
-            //}
-
-            return true;
+            return false;
         }
 
-        public static bool EditCustomer()
+        public static bool EditCustomer(Customer selectedCustomer) // what to pass in?
         {
             Console.WriteLine("WHAT WOULD YOU LIKE TO EDIT?");
+            Console.WriteLine("PLEASE SELECT FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, OR STATUS");
             string input = Console.ReadLine();
 
-            switch (input) // NEED TO ADD LOOP SO SWITCH KEEPS GOING UNTIL A VALID INPUT IS ENTERED
+            switch (input)
             {
                 case "FIRST NAME":
                     Console.WriteLine("PLEASE ENTER NEW FIRST NAME");
-                    Console.ReadLine();
+                    selectedCustomer.FirstName = Console.ReadLine();
+                    selectedCustomer.Name = selectedCustomer.FirstName + " " + selectedCustomer.LastName;
                     break;
 
                 case "LAST NAME":
                     Console.WriteLine("PLEASE ENTER NEW LAST NAME");
-                    Console.ReadLine();
+                    selectedCustomer.LastName = Console.ReadLine();
+                    selectedCustomer.Name = selectedCustomer.FirstName + " " + selectedCustomer.LastName;
                     break;
 
                 case "PHONE NUMBER":
                     Console.WriteLine("PLEASE ENTER NEW PHONE NUMBER");
-                    Console.ReadLine();
+                    selectedCustomer.PhoneNumber = Console.ReadLine();
                     break;
 
                 case "EMAIL":
                     Console.WriteLine("PLEASE ENTER NEW EMAIL");
-                    Console.ReadLine();
+                    selectedCustomer.Email = Console.ReadLine();
                     break;
 
                 case "ADDRESS":
                     Console.WriteLine("PLEASE ENTER NEW ADDRESS");
-                    Console.ReadLine();
+                    selectedCustomer.Address = Console.ReadLine();
                     break;
 
                 case "STATUS":
                     Console.WriteLine("PLEASE ENTER NEW CUSTOMER STATUS");
                     Console.WriteLine("CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
                     string customerStatus = Console.ReadLine();
-                    // ERROR HANDLING NEEDS TO BE ADDED HERE
+
                     if (customerStatus == "ACTIVE" | customerStatus == "INACTIVE")
                     {
-                        //change object value
+                        selectedCustomer.Status = customerStatus;
                         Console.WriteLine("CUSTOMER STATUS CHANGE SUCCESSFUL"); 
                     }
                     else
@@ -196,15 +183,18 @@ namespace MovieStoreApp
                         Console.WriteLine("INPUT INVALID. CUSTOMER STATUS CAN ONLY BE ACTIVE OR INACTIVE");
                     }
                     break;
+
                 case "CANCEL":
                     Console.WriteLine("RETURNING TO SEARCH MENU");
                     return false;
+
                 default:
                     Console.WriteLine("INPUT INVALID. ENTER ONE OF THE FOLLOWING:");
                     Console.WriteLine("FIRST NAME, LAST NAME, PHONE NUMBER, EMAIL, ADDRESS, STATUS, CANCEL");
                     break;
             }
             return true;
+            
         }
     }
 }

@@ -18,11 +18,13 @@ namespace MovieStoreApp
          
             Console.WriteLine("2. CUSTOMER SEARCH");
         
-            Console.WriteLine("3. CHECKOUT/RETURN");
+            Console.WriteLine("3. CHECKOUT");
+
+            Console.WriteLine("4. RETURN");
             
-            Console.WriteLine("4. EDIT INVENTORY");
+            Console.WriteLine("5. VIEW INVENTORY");
             
-            Console.WriteLine("5. EXIT");
+            Console.WriteLine("6. EXIT");
 
             Console.Write("ENTER YOUR CHOICE: ");
             
@@ -56,19 +58,31 @@ namespace MovieStoreApp
                     Console.WriteLine();
                     break;
 
-                case "3": // CHECK OUT/RETURN
+                case "3": // CHECK OUT
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
                     break;
 
-                case "4": // EDIT INVENTORY
+                case "4": // RETURN
                     Console.WriteLine();
                     Console.WriteLine("============================================================");
                     Console.WriteLine();
                     break;
 
-                case "5": // EXIT APPLICATION
+                case "5": // VIEW INVENTORY
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+
+                    Movies.ViewInventory();
+
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+                    break;
+
+                case "6": // EXIT APPLICATION
                     return false;
 
                 default:
