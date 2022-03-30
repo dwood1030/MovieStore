@@ -90,6 +90,8 @@ namespace MovieStoreApp
                                     select cust;
 
             int index = 0;
+            bool isNumber = false;
+            int selectedIndex = 0;
 
             foreach(Customer cust in queryAllCustomers)
             {
@@ -98,9 +100,23 @@ namespace MovieStoreApp
             }
             
             Console.WriteLine("PLEASE SELECT THE CUSTOMER INDEX USING '0', '1','2','3', ETC..");
-            var selectedIndex = Int32.Parse(Console.ReadLine());
 
-            if (selectedIndex < index++)
+            while (isNumber == false)
+            {
+                string inputIndex = Console.ReadLine();
+
+                if(!int.TryParse(inputIndex, out selectedIndex))
+                {
+                    Console.WriteLine("INPUT INVALID. PLEASE ENTER A VALID INDEX.");
+                }
+                else
+                {
+                    isNumber = true;
+                }
+
+            }
+
+            if (selectedIndex < index++ && selectedIndex > -1)
             {
                 var selectedCustomer = queryAllCustomers.ElementAt(selectedIndex);
                 Console.WriteLine("WOULD YOU LIKE TO EDIT THIS CUSTOMER? INPUT 'Y' OR 'N'");
