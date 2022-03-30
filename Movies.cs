@@ -33,6 +33,9 @@ namespace MovieStoreApp
 
         public static void CheckOut()
         {
+            bool isNumber = false;
+            int checkedOutDays = 0;
+
             string movieString = File.ReadAllText(@"movieList.json");
             var movie = JsonSerializer.Deserialize<List<Movies>>(movieString);
 
@@ -45,11 +48,33 @@ namespace MovieStoreApp
 
             foreach (Movies mov in queryAllMovies)
             {
-                Console.WriteLine("{0}, {1}", mov.Title, mov.Quantity);
+                Console.WriteLine($"{mov.Title}, {mov.Quantity}");
             }
 
-            Console.WriteLine("ENTER CUSTOMER: ");
-            Console.Read();
+            //Console.WriteLine("ENTER NUMBER OF COPIES TO CHECK OUT.");
+
+            //enter copies to check out
+
+            Console.WriteLine("ENTER THE NUMBER OF DAYS TO CHECK OUT");
+
+            while (isNumber == false)
+            {
+                string inputDays = Console.ReadLine();
+
+                if (!int.TryParse(inputDays, out checkedOutDays))
+                {
+                    Console.WriteLine("INPUT INVALID. PLEASE ENTER A VALID NUMBER");
+                }
+                else
+                {
+                    isNumber = true;
+                }
+            }
+            DateTime today = DateTime.Today;
+            Console.WriteLine($"MOVIE CHECKED OUT ON: {today.ToString("MM/dd/yyyy")}");
+
+            DateTime dueDate = today.AddDays(checkedOutDays);
+            Console.WriteLine($"DUE DATE: {dueDate.ToString("MM/dd/yyyy")}");
         }
     }
 }

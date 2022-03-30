@@ -18,7 +18,7 @@ namespace MovieStoreApp
          
             Console.WriteLine("2. CUSTOMER SEARCH");
         
-            //Console.WriteLine("3. CHECKOUT");
+            Console.WriteLine("3. CHECKOUT");
 
             //Console.WriteLine("4. RETURN");
             
@@ -58,11 +58,17 @@ namespace MovieStoreApp
                     Console.WriteLine();
                     break;
 
-                //case "3": // CHECK OUT
-                //    Console.WriteLine();
-                //    Console.WriteLine("============================================================");
-                //    Console.WriteLine();
-                //    break;
+                case "3": // CHECK OUT
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+
+                      Movies.CheckOut();
+
+                    Console.WriteLine();
+                    Console.WriteLine("============================================================");
+                    Console.WriteLine();
+                    break;
 
                 //case "4": // RETURN
                 //    Console.WriteLine();

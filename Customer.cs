@@ -117,7 +117,6 @@ namespace MovieStoreApp
                 {
                     isNumber = true;
                 }
-
             }
 
             if (selectedIndex < index++ && selectedIndex > -1)
