@@ -70,6 +70,7 @@ namespace MovieStoreApp
                     isNumber = true;
                 }
             }
+
             DateTime today = DateTime.Today;
             Console.WriteLine($"MOVIE CHECKED OUT ON: {today.ToString("MM/dd/yyyy")}");
 
