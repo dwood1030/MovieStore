@@ -7,4 +7,3 @@ Welcome to the MovieStore project! This project is being used as my final projec
 - Reading data from an external JSON file and using that data to edit customer information, and view inventory information
 - Using a LINQ query to retrive information from a list
 - Calculating and displaying data based on an external factor (using the date that the movie is checked out, entering the number of days to have it checked out, and then displaying the due date based on the entered number of days)
-- Generating a GUID for each customer object created
